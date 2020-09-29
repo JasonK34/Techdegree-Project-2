@@ -4,19 +4,25 @@ from constants import TEAMS
 from constants import PLAYERS
 import copy
 
+print("Welcome to Basketball Stats!")
 
-def clean_data():
-
-    new_teams_copy = copy.deepcopy(TEAMS)
-    print(new_teams_copy)    
+def stat_tool():
     
-    new_teams_copy.append("Bears")
-    print(new_teams_copy)
+
+    def clean_data():
+        the_players = copy.deepcopy(PLAYERS)
+    
+        
+    
+
+    def balance_teams():
+        the_teams = copy.deepcopy(TEAMS)
+        print(the_teams)
 
 
 
 
 if __name__ == "__main__":
-    clean_data()
+    stat_tool()
 
 
