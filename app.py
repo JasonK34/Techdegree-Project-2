@@ -4,10 +4,12 @@ from constants import TEAMS
 from constants import PLAYERS
 import copy
 
+the_players = copy.deepcopy(PLAYERS)
+
 print("\nWelcome to Basketball Stats!")
 
 def clean_data():
-    the_players = copy.deepcopy(PLAYERS)
+    #the_players = copy.deepcopy(PLAYERS)
     print(the_players)
 
 def balance_teams():
