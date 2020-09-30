@@ -4,31 +4,31 @@ from constants import TEAMS
 from constants import PLAYERS
 import copy
 
-the_players = copy.deepcopy(PLAYERS)
-the_teams = copy.deepcopy(TEAMS)
+players_copy = copy.deepcopy(PLAYERS)
+teams_copy = copy.deepcopy(TEAMS)
 
 
-panthers = the_teams[0]
+panthers = teams_copy[0]
 panthers_players = []
 
-bandits = the_teams[1] 
+bandits = teams_copy[1] 
 bandits_players = []
 
-warriors = the_teams[2]
+warriors = teams_copy[2]
 warriors_players = []
 
 print("\nWelcome to Basketball Stats!")
 
 
 def clean_data():
-    print(len(the_players))
+    print(len(players_copy))
 
 
 def balance_teams():
 
-    panthers_players.append(the_players[0:6])
-    bandits_players.append(the_players[6:13])
-    warriors_players.append(the_players[13:])
+    panthers_players.append(players_copy[0:6])
+    bandits_players.append(players_copy[6:13])
+    warriors_players.append(players_copy[13:])
 
    
 def stat_tool():
