@@ -5,15 +5,14 @@ from constants import PLAYERS
 import copy
 
 the_players = copy.deepcopy(PLAYERS)
+the_teams = copy.deepcopy(TEAMS)
 
 print("\nWelcome to Basketball Stats!")
 
 def clean_data():
-    #the_players = copy.deepcopy(PLAYERS)
     print(the_players)
 
 def balance_teams():
-    the_teams = copy.deepcopy(TEAMS)
     print(the_teams)
 
 def stat_tool():
@@ -23,11 +22,6 @@ def stat_tool():
         balance_teams()
         
     
-
-    
-
-
-
 
 if __name__ == "__main__":
     stat_tool()
