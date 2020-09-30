@@ -26,15 +26,20 @@ def balance_teams():
     warriors_players = []
     warriors_players.append(the_players[13:])
 
-    print(the_teams)
-    print(panthers, bandits, warriors)
-    print(f"Your Panthers are: {panthers_players}, \n\nYour Bandits are: {bandits_players}, \n\nYour Warriors are: {warriors_players}")
+    #print(the_teams)
+    #print(panthers, bandits, warriors)
+    #print(f"Your Panthers are: {panthers_players}, \n\nYour Bandits are: {bandits_players}, \n\nYour Warriors are: {warriors_players}")
 
 def stat_tool():
+    balance_teams()
     initial_entry = int(input("\nPlease enter '1' for stats, and '2' to exit: \n"))
     if initial_entry == 1:
-        clean_data()
-        balance_teams()
+        select_team = int(input("Select team (enter numer): (1) Panthers, (2) Bandits, (3) Warriors: \n"))
+        if select_team == 1:
+            balance_teams()
+            print(panthers, ": ", panthers_players) 
+        #clean_data()
+        #balance_teams()
         
     
 
