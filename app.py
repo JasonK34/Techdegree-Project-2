@@ -3,27 +3,22 @@
 from constants import TEAMS
 from constants import PLAYERS
 import copy
-import random
+
 
 #my copies of the original files
 players_copy = copy.deepcopy(PLAYERS)
 teams_copy = copy.deepcopy(TEAMS)
 
-#new copy of the entire player list
+#new list of all players
 players_list = []
+guardian_list = []
 
-#files of the list of players on each team
-panthers = teams_copy[0]
+#each team's list of players
 panthers_players = []
-
-bandits = teams_copy[1] 
 bandits_players = []
-
-warriors = teams_copy[2]
 warriors_players = []
 
-print("\nWelcome to Basketball Stats!")
-
+print("\nWelcome to Basketball Stats!\n")
 
 def clean_data():
     
@@ -31,39 +26,57 @@ def clean_data():
         for key, value in player.items():
             if key == "name":
                 players_list.append(value)
+
+            if key == "guardians":
+                guardian_list.append(value)
+            
             if key == "height":
                 num_inches = value.split(" ")
                 num = int(num_inches[0])
                 #print (num)
 
-def balance_teams():
+            #if players_copy['experience'] = "YES":
+               # YES = True
+                
 
-    panthers_players.append(random.sample(players_list, k=6))
-    bandits_players.append(random.sample(players_list, k=6))
-    warriors_players.append(random.sample(players_list, k=6))
-    
-    #print(len(players_copy))
-    #panthers_players.append(players_copy[0:6])
-    #bandits_players.append(players_copy[6:13])
-    #warriors_players.append(players_copy[13:])
 
-   
-def stat_tool():
-    
-    clean_data()
     balance_teams()
+    
+    
     initial_entry = int(input("\nPlease enter '1' for stats, and '2' to exit: \n"))
     while initial_entry == 1:
-        select_team = int(input("\nSelect team (enter numer): (1) Panthers, (2) Bandits, (3) Warriors: \n"))
+        select_team = int(input("\nSelect option below (enter numer):\n (1) PANTHERS roster\n (2) BANDITS roster\n (3) WARRIORS roster \n (4) ALL Players\n (5) All Guardians\n"))
         if select_team == 1:
-            print("\nPanthers:", panthers_players) 
-        if select_team == 2:
-            print("\nBandits: ", bandits_players)
+            print("\nPANTHERS:")
+            for panther in players_copy:
+                print(panther)
+                if select_team == 2:
+            print("\nBANDITS: ")
+            for bandit in bandits_players:
+                print(bandit)
         if select_team == 3:
-            print("\nWarriors: ", warriors_players)
+            print("\nWARRIORS: ")
+            for warrior in warriors_players:
+                print(warrior)
+        if select_team == 4:
+            print("\nALL players: \n")
+            for player in players_list:
+                print(player)
+        if select_team == 5:
+            print("\nGUARDIANS: \n")
+            for guardian in guardian_list:
+                print(guardian)    
+
+def balance_teams():
     
+    panthers_players.append(players_list[0:6])
+    bandits_players.append(players_list[6:12])
+    warriors_players.append(players_list[12:])
+
+   
+
 
 if __name__ == "__main__":
-    stat_tool()
-
+    clean_data()
+    balance_teams()
 
