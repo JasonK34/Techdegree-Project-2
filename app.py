@@ -20,6 +20,7 @@ warriors_players = []
 
 print("\nWelcome to Basketball Stats!\n")
 
+
 def clean_data():
     
     for player in players_copy:
@@ -29,18 +30,21 @@ def clean_data():
 
             if key == "guardians":
                 guardian_list.append(value)
-                for guardian in guardian_list:
-                    if "and" in guardian:
-                        guardian.pop("and")
-                print(guardian_list) 
+               # for guardian in guardian_list:
+                #    if "and" in guardian:
+                 #       guardian.pop("and")
+                #print(guardian_list) 
 
             if key == "height":
-                num_inches = value.split(" ")
-                num = int(num_inches[0])
-                #print (num)
+                height = int(value.split(" ")[0])
+                player["height"] = height
                 
- 
-    
+            if key == "experience":
+                
+                
+    print(players_copy)          
+                      
+
 def balance_teams():
     
     initial_entry = int(input("\nPlease enter '1' for stats, and '2' to exit: \n\n ---> "))
@@ -52,6 +56,8 @@ def balance_teams():
                 for key, value in player.items():
                     if key == "name":
                         print(value)
+                    if key == "height":
+                        print(" * Height: ", value, "inches")
 
         if select_team == 2:
             print("\nBANDITS: ")
@@ -59,23 +65,34 @@ def balance_teams():
                 for key, value in player.items():
                     if key == "name":
                         print(value)
+                    if key == "height":
+                        print(" * Height: ", value, "inches")
+                        
         if select_team == 3:
             print("\nWARRIORS: ")
             for player in players_copy[12:]:
                 for key, value in player.items():
                     if key == "name":
                         print(value)
+                    if key == "height":
+                        print(" * Height: ", value, "inches")    
+                        
         if select_team == 4:
             print("ALL players: \n")
             for player in players_list:
                 print(player)
+                
         if select_team == 5:
             print("\nGUARDIANS: \n")
             for guardian in guardian_list:
                 print(guardian)    
 
+  
+
 
 if __name__ == "__main__":
     clean_data()
     balance_teams()
+    
+
 
