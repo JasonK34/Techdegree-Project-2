@@ -5,6 +5,7 @@ from constants import PLAYERS
 import copy
 
 
+
 #my copies of the original files
 players_copy = copy.deepcopy(PLAYERS)
 teams_copy = copy.deepcopy(TEAMS)
@@ -29,21 +30,23 @@ def clean_data():
                 players_list.append(value)
 
             if key == "guardians":
-                guardian_list.append(value)
-               # for guardian in guardian_list:
-                #    if "and" in guardian:
-                 #       guardian.pop("and")
-                #print(guardian_list) 
+                guardians = value.split('and')
+                player["guardians"] = guardians
+                for guardian in guardians:
+                    guardian_list.append(guardian)
+                    #print (guardian)
 
             if key == "height":
                 height = int(value.split(" ")[0])
                 player["height"] = height
                 
             if key == "experience":
-                
-                
-    print(players_copy)          
-                      
+                if "experience" == "YES":
+                    player["experience"] = True
+                if "experience" == "NO":
+                    player["experience"] = False
+
+    print(players_copy)
 
 def balance_teams():
     
@@ -58,6 +61,10 @@ def balance_teams():
                         print(value)
                     if key == "height":
                         print(" * Height: ", value, "inches")
+                    if key == "guardians":
+                        print(" * Guardian(s): ", ','.join(value))
+                    if key == "experience":
+                        print(" * Experience: ", value)
 
         if select_team == 2:
             print("\nBANDITS: ")
@@ -67,7 +74,10 @@ def balance_teams():
                         print(value)
                     if key == "height":
                         print(" * Height: ", value, "inches")
-                        
+                    if key == "guardians":
+                        print(" * Guardian(s): ", ','.join(value))
+                    if key == "experience":
+                        print(" * Experience: ", value)    
         if select_team == 3:
             print("\nWARRIORS: ")
             for player in players_copy[12:]:
@@ -75,7 +85,11 @@ def balance_teams():
                     if key == "name":
                         print(value)
                     if key == "height":
-                        print(" * Height: ", value, "inches")    
+                        print(" * Height: ", value, "inches") 
+                    if key == "guardians":
+                        print(" * Guardian(s): ", ','.join(value))
+                    if key == "experience":
+                        print(" * Experience: ", value)   
                         
         if select_team == 4:
             print("ALL players: \n")
@@ -86,8 +100,6 @@ def balance_teams():
             print("\nGUARDIANS: \n")
             for guardian in guardian_list:
                 print(guardian)    
-
-  
 
 
 if __name__ == "__main__":
