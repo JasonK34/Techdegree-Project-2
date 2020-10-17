@@ -61,9 +61,9 @@ def balance_teams():
     
 def stat_tool():
 
-    initial_entry = int(input("\nPlease enter '1' for stats, and '2' to exit: \n\n ---> "))
+    initial_entry = int(input("\nPlease enter '1' for STATS, and '2' to QUIT: \n\n ---> "))
     while initial_entry == 1:
-        select_team = int(input("\nSelect option below (enter number):\n (1) PANTHERS roster\n (2) BANDITS roster\n (3) WARRIORS roster \n (4) All Guardians\n (5) EXIT\n\n ---> "))
+        select_team = int(input("\nSelect option below (enter number):\n (1) PANTHERS roster\n (2) BANDITS roster\n (3) WARRIORS roster \n (4) All Guardians\n (5) QUIT PROGRAM\n\n ---> "))
         if select_team == 1:
             print("\nPANTHERS: \n")
             print("Number of players: ", len(panthers_players))
