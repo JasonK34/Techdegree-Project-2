@@ -60,35 +60,45 @@ def balance_teams():
 
     
 def stat_tool():
-
-    initial_entry = int(input("\nPlease enter '1' for STATS, and '2' to QUIT: \n\n ---> "))
-    while initial_entry == 1:
-        select_team = int(input("\nSelect option below (enter number):\n\n (1) PANTHERS roster\n (2) BANDITS roster\n (3) WARRIORS roster \n (4) All Guardians\n (5) QUIT PROGRAM\n\n ---> "))
-        if select_team == 1:
-            print("\nPANTHERS: \n")
-            print("Number of players: ", len(panthers_players))
-            print(*panthers_players, sep=", ")
+    try:
+        initial_entry = int(input("\nPlease enter '1' for STATS, and '2' to QUIT: \n\n ---> "))
+        while initial_entry == 1:
+            select_team = int(input("\nSelect option below (enter number):\n\n (1) PANTHERS roster\n (2) BANDITS roster\n (3) WARRIORS roster \n (4) All Guardians\n (5) QUIT PROGRAM\n\n ---> "))
+            if select_team == 1:
+                print("\nPANTHERS: \n")
+                print("Number of players: ", len(panthers_players))
+                print(*panthers_players, sep=", ")
  
-        if select_team == 2:
-            print("\nBANDITS: \n")
-            print("Number of players: ", len(bandits_players))
-            print(*bandits_players, sep=", ")
+            if select_team == 2:
+                print("\nBANDITS: \n")
+                print("Number of players: ", len(bandits_players))
+                print(*bandits_players, sep=", ")
             
-        if select_team == 3:
-            print("\nWARRIORS: \n")
-            print("Number of players: ", len(warriors_players))            
-            print(*warriors_players, sep=", ")  
+            if select_team == 3:
+                print("\nWARRIORS: \n")
+                print("Number of players: ", len(warriors_players))            
+                print(*warriors_players, sep=", ")  
                                        
-        if select_team == 4:
-            print("\nGUARDIANS: \n")
-            for guardian in guardian_list:
-                print(guardian)
-        if select_team == 5:
-            print("\nGoodbye\n")
-            break    
-                                 
-    else:
-        print("\nGoodbye!\n")
+            if select_team == 4:
+                print("\nGUARDIANS: \n")
+                for guardian in guardian_list:
+                    print(guardian)
+            if select_team == 5:
+                print("\nGoodbye\n")
+                break
+        if initial_entry == 2:
+            print("\nGoodbye!\n")
+        if initial_entry != 1 and initial_entry != 2:
+            print("Invalid entry")
+            stat_tool()
+            
+    except ValueError:
+        print("Invalid Entry")
+        stat_tool()
+
+        
+
+        
 
 if __name__ == "__main__":
     clean_data()
