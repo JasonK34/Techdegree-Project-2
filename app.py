@@ -36,10 +36,11 @@ def clean_data():
                 player["height"] = height
                 
             if key == "experience":
-                if "experience" == "YES":
+                if player["experience"] == "YES":
                     player["experience"] = True
-                if "experience" == "NO":
+                if player["experience"] == "NO":
                     player["experience"] = False
+                              
 
 def balance_teams():
     
@@ -96,14 +97,9 @@ def stat_tool():
         print("Invalid Entry")
         stat_tool()
 
-        
 
-        
 
 if __name__ == "__main__":
     clean_data()
     balance_teams()
     stat_tool()
-
-    
-
